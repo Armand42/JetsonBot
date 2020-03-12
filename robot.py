@@ -160,9 +160,12 @@ while True:
 			print("X is:", x)
 			print("Y is: ", y)
 			#moveCamera(x,y)
+			#if (x < 400):
+			#	GPIO.output(IN1, GPIO.HIGH)
 			#Object if left so move left
 			if (x < 400):
-				#GPIO.output(IN1, GPIO.HIGH)
+				#if (x < 350):
+					#GPIO.output(IN1, GPIO.HIGH)
 				#GPIO.output(IN2, GPIO.LOW)
 				angleX += 3
 				if (angleX > 170):
@@ -204,6 +207,14 @@ while True:
 				GPIO.output(IN1, GPIO.HIGH)
 				GPIO.output(IN2, GPIO.HIGH)
 				#time.sleep(2)
+			elif (x < 100):
+				GPIO.output(IN1, GPIO.HIGH)
+				GPIO.output(IN2, GPIO.LOW)
+			elif (x > 500):
+				GPIO.output(IN2, GPIO.HIGH)
+				GPIO.output(IN1, GPIO.LOW)
+
+
 			else:
 				GPIO.output(IN1, GPIO.LOW)
 				GPIO.output(IN2, GPIO.LOW)
