@@ -1,4 +1,5 @@
 # sudo chmod 666 /dev/ttyACM0 
+# May need to change video value from 0 to -1
 # Restart computer everytime you swap cameras
 # Pyfirmata library must be uploaded to Arduino board
 # Machine Learning Object Recognition Robot
@@ -80,7 +81,7 @@ pts = deque(maxlen=args["buffer"])
 # if a video path was not supplied, grab the reference
 # to the webcam
 if not args.get("video", False):
-	camera = cv2.VideoCapture(0)
+	camera = cv2.VideoCapture(-1)
 	#camera = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
 # otherwise, grab a reference to the video file
 else:
@@ -114,7 +115,7 @@ while True:
 	# resize the frame, blur it, and convert it to the HSV
 	# color space
 	frame = imutils.resize(frame, width=800)
-	# blurred = cv2.GaussianBlur(frame, (11, 11), 0)
+	#blurred = cv2.GaussianBlur(frame, (11, 11), 0)
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
 	# construct a mask for the color "green", then perform
